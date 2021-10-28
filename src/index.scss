@@ -55,6 +55,10 @@ body {
           display: block;
           font-size: 18px;
           color: #333;
+          cursor: pointer;
+          &:hover {
+            color: #0099e5;
+          }
         }
       }
     }
@@ -66,6 +70,7 @@ body {
   background-color: #fff;
   box-shadow: 0 0 15px 5px rgba(#000, 0.1);
   padding: 50px;
+  position: relative;
 
   h3 {
     font-size: 25px;
@@ -78,6 +83,15 @@ body {
     margin-bottom: 15px;
     color: #555;
   }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
 }
 
 .about-modal-overlay {
@@ -89,4 +103,90 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.copied {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+  .header {
+    height: 60px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    position: sticky;
+    top: 0;
+    .search {
+      flex: 1;
+      position: relative;
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        padding: 0 20px 0 60px;
+      }
+    }
+  }
+
+  .brands {
+    padding: 25px;
+    .brand {
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      &-colors {
+        display: flex;
+        span {
+          cursor: pointer;
+          background-color: var(--bgColor);
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          font-weight: 500;
+          color: var(--textColor);
+          text-indent: -9999px;
+          width: 80px;
+        }
+      }
+      &.selected {
+        border-color: red;
+        .brand-colors {
+          span {
+            flex: 1;
+            text-indent: 0;
+          }
+        }
+      }
+    }
+  }
 }

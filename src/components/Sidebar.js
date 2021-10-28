@@ -15,7 +15,7 @@ function Sidebar(props){
         <>
         <aside className="sidebar">
         <div className="logo">
-            <a>Brand <b>Colors</b></a>
+            <a>Brand<b>Colors</b></a>
         </div>
         <div className="description">
         The biggest collection of official brand color codes around. Curated by @brandcolors and friends.
@@ -34,7 +34,7 @@ function Sidebar(props){
         className="about-modal"
         overlayClassName="about-modal-overlay"
         ariaHideApp={false}>
-        <button onClick={toggleModal}>
+        <button className="modal-close-btn" onClick={toggleModal}>
             <GrClose />
         </button>
         <h3>About BrandColors</h3>
