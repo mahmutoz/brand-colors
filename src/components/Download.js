@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import MainContext from '../MainContext';
 import { BsLink, BsDownload, BsX } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 function Download() {
   const { selectedBrands, brands, setSelectedBrands } = useContext(MainContext);
@@ -55,25 +56,22 @@ function Download() {
   }, [selectedBrands, cssMethod]);
 
   const getLink = () => {
-    prompt(
-      "Here's the URL to share",
-      `http://localhost:3000//collection/${selectedBrands.join(',')}`
-    );
+    prompt("Here's the URL to share", `http://localhost:3000/}`);
   };
   return (
     <div className="download">
       <div className="actions">
-        <a download={`brands.${cssMethod}`} href={downloadUrl}>
-          <BsDownload />
-        </a>
         <select onChange={(e) => setCssMethod(e.target.value)}>
           <option value="css">CSS</option>
           <option value="scss">SCSS</option>
           <option value="less">LESS</option>
         </select>
-        <button onClick={getLink}>
+        <a download={`brands.${cssMethod}`} href={downloadUrl}>
+          <BsDownload />
+        </a>
+        <Link to={`/collection/${selectedBrands.join(',')}`}>
           <BsLink />
-        </button>
+        </Link>
       </div>
       <div className="selected" onClick={() => setSelectedBrands([])}>
         <BsX />

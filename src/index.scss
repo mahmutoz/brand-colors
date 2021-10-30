@@ -19,6 +19,7 @@ code {
   border: none;
   box-sizing: border-box;
   outline: 0;
+  text-decoration: none;
 }
 
 html,
@@ -32,8 +33,8 @@ body {
 }
 
 .sidebar {
-  width: 320px;
-  min-width: 320px;
+  width: 300px;
+  min-width: 300px;
   border-right: 1px solid #ccc;
   padding: 25px;
   .logo {
@@ -130,6 +131,7 @@ body {
     z-index: 999;
     background-color: #fff;
     align-items: center;
+    justify-content: space-between;
     .search {
       flex: 1;
       position: relative;
@@ -154,6 +156,27 @@ body {
         padding: 0 20px 0 60px;
       }
     }
+    .back-btn {
+      background: transparent;
+      margin-left: 20px;
+      font-weight: 500;
+      font-size: 20px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 8px;
+        display: block;
+        font-size: 18px;
+      }
+      &:hover {
+        color: #999;
+        path {
+          stroke: #999;
+        }
+      }
+    }
+
     .download {
       padding-right: 25px;
       cursor: pointer;
@@ -179,6 +202,21 @@ body {
             &:hover {
               color: #333;
             }
+          }
+        }
+        select {
+          height: 30px;
+          padding: 0 10px 0 15px;
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+          color: #999;
+          appearance: none;
+          cursor: pointer;
+          margin: 0 10px;
+          border-radius: 3px;
+          transition: all 0.15s ease-out;
+          &:hover {
+            color: #333;
+            box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
           }
         }
       }

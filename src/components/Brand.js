@@ -1,37 +1,48 @@
-import {useContext} from 'react';
-import {getContrastYIQ} from '../helpers';
+import { useContext } from 'react';
+import { getContrastYIQ } from '../helpers';
 import MainContext from '../MainContext';
 import ClipboardButton from 'react-clipboard.js';
-import {MdContentCopy} from 'react-icons/md'
+import { MdContentCopy } from 'react-icons/md';
 
-function Brand({brand, style}){
-    const {hoverColor, setHoverColor, selectedBrands, setSelectedBrands, setCopied} = useContext(MainContext);
-    const toggleSelected = () => {
-        if(selectedBrands.includes(brand.slug)){
-            setSelectedBrands(selectedBrands.filter(slug => slug !== brand.slug))
-        } else {
-            setSelectedBrands([...selectedBrands, brand.slug])
-        }
+function Brand({ brand, style }) {
+  const { selectedBrands, setSelectedBrands, setCopied } =
+    useContext(MainContext);
+  const toggleSelected = () => {
+    if (selectedBrands.includes(brand.slug)) {
+      setSelectedBrands(selectedBrands.filter((slug) => slug !== brand.slug));
+    } else {
+      setSelectedBrands([...selectedBrands, brand.slug]);
     }
+  };
 
-    const setColor = (color) => {
-        setCopied(color);
-    }
+  const setColor = (color) => {
+    setCopied(color);
+  };
 
-    return(
-        <div style={style}>
-            <div  className={`brand ${selectedBrands.includes(brand.slug) ? 'selected' : ''}`}>
-                <h5 onClick={toggleSelected}>{brand.title}</h5>
-                <div className="brand-colors">
-                    {brand.colors.map(color =>
-                    <ClipboardButton
-                    onSuccess={() => setColor(color)} data-clipboard-text={color} component="span" style={{'--bgColor': `#${color}`, '--textColor': `${getContrastYIQ(color)}`}}>
-                    {<MdContentCopy />} {color}
-                    </ClipboardButton>)}
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div
+      className={`brand ${
+        selectedBrands.includes(brand.slug) ? 'selected' : ''
+      }`}
+    >
+      <h5 onClick={toggleSelected}>{brand.title}</h5>
+      <div className="brand-colors">
+        {brand.colors.map((color, key) => (
+          <ClipboardButton
+            key={key}
+            data-clipboard-text={color}
+            onSuccess={() => setColor(color)}
+            component="span"
+            style={{
+              '--bgColor': `#${color}`,
+              '--textColor': `${getContrastYIQ(color)}`,
+            }}
+          >
+            {<MdContentCopy />} {color}
+          </ClipboardButton>
+        ))}
+      </div>
+    </div>
+  );
 }
-
 export default Brand;
