@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {getContrastYIQ} from '../helpers';
 
 function Copied({color}) {

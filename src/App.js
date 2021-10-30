@@ -14,22 +14,31 @@ function App() {
     const [brands, setBrands] = useState(brandsArray);
     const [selectedBrands, setSelectedBrands] = useState([]);
     const [copied, setCopied] = useState(false);
+    const [hoverColor, setHoverColor] = useState(false);
+    const [search, setSearch] = useState('');
     
     useEffect(() => {
       var timeOut = setTimeout(() => {
         setCopied(false)
-      }, 500);
+      }, 3000);
       return () => {
         clearTimeout(timeOut)
       }
     }, [copied]);
     
-    
+    useEffect(() => {
+      setBrands(brands.filter(brand => brand.title.toLowerCase().includes(search)));
+    }, [search])
+
     const data = {
       brands,
       selectedBrands,
       setCopied,
-      setSelectedBrands
+      setSelectedBrands,
+      search,
+      setSearch,
+      hoverColor,
+      setHoverColor
     }
 
   return (
