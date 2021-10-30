@@ -1,14 +1,10 @@
 ## About
 
----
-
-Brandcolors.net website clone with react
+[Brandcolors.net](https://brandcolors.net/) website clone with react
 
 ## Demo
 
 [https://brands-colors.netlify.app/](https://brands-colors.netlify.app/)
-
----
 
 ## Setup
 
@@ -28,7 +24,7 @@ yarn start
 - sass
 - style-loader
 
-## Calculating Color Contrast
+## [Calculating Color Contrast](https://24ways.org/2010/calculating-color-contrast)
 
 ```javascript
 const getContrastYIQ = (hexcolor) => {
@@ -41,5 +37,3 @@ const getContrastYIQ = (hexcolor) => {
 ```
 
 ![](src/img/colors.png)
-
-[source](https://24ways.org/2010/calculating-color-contrast)
