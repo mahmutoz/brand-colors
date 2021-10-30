@@ -33,20 +33,32 @@ body {
 }
 
 .sidebar {
-  width: 300px;
-  min-width: 300px;
-  border-right: 1px solid #ccc;
+  width: 320px;
+  min-width: 320px;
+  border-right: 1px solid #ddd;
   padding: 25px;
   .logo {
     margin-bottom: 25px;
+    display: flex;
+    align-items: center;
     a {
-      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 25px;
+      color: #333;
+      img {
+        margin-right: 8px;
+      }
+      &:hover {
+        color: #0099e5;
+      }
     }
   }
   .description {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.7;
-    color: #999;
+    color: #888;
     margin-bottom: 25px;
   }
   .menu {
@@ -55,12 +67,35 @@ body {
         a {
           display: block;
           font-size: 18px;
-          color: #333;
+          color: #111;
+          font-weight: bold;
           cursor: pointer;
           &:hover {
             color: #0099e5;
           }
         }
+      }
+    }
+  }
+  hr {
+    margin: 15px 0;
+    height: 1px;
+    background: #e0e0e0;
+  }
+  .external-link {
+    span {
+      display: block;
+      color: #111;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    p {
+      color: #aaa;
+      font-size: 13px;
+    }
+    &:hover {
+      p {
+        color: #0099e5;
       }
     }
   }
@@ -266,8 +301,8 @@ body {
           text-indent: -9999px;
           width: 60px;
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+          margin-right: 10px;
           svg {
-            margin-right: 5px;
             font-size: 22px;
             display: none;
           }
@@ -284,7 +319,7 @@ body {
           span {
             flex: 1;
             &:hover {
-              text-indent: 0;
+              text-indent: 5px;
               svg {
                 display: block;
               }
